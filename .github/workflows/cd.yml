@@ -36,4 +36,4 @@ jobs:
           aws eks update-kubeconfig --region ap-south-1 --name mycluster
  
       - name: Deploy to EKS
-        run: sudo kubectl apply -f Deployments/
+        run: sudo kubectl apply -f Deployments/ 
