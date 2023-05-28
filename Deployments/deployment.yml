@@ -1,45 +1,22 @@
-kind: Deployment
 apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: mydeployment
-  namespace: default
+  name: angular-cd
+  labels:
+    app: angular
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: deployment1
+      app: yashkalabel
   template:
     metadata:
-      name: uideployment
       labels:
-        name: deployment1
+        app: yashkalabel
     spec:
       containers:
-      - name: angularcontanier
-        image: bhasmeht/angular-image:1.1.8 # {"$imagepolicy": "flux-system:mypolicy"}
-        ports:
-        - containerPort: 80
-        imagePullPolicy: Always
----
-kind: Deployment
-apiVersion: apps/v1
-metadata:
-  name: mydeploymenttest
-  namespace: default
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      name: deployment
-  template:
-    metadata:
-      name: testdeployment
-      labels:
-        name: deployment
-    spec:
-      containers:
-      - name: testdeployment
-        image: nginx
+      - name: angularapp
+        image: ykum01/angular-image:1.0.0
         ports:
         - containerPort: 80
         imagePullPolicy: Always
